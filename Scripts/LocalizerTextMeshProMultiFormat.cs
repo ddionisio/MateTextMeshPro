@@ -15,7 +15,7 @@ namespace M8.TextMeshPro {
 
         public string format = "{0}";
 
-        public TextMeshProUGUI uiText { get; private set; }
+        public TMP_Text uiText { get; private set; }
 
         private bool mStarted = false;
         private string[] mTexts;

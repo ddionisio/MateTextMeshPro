@@ -24,7 +24,7 @@ namespace M8.TextMeshPro {
         /// </summary>
         public object[] parameters { get { return mParams; } set { mParams = value; } }
 
-        public TextMeshProUGUI uiText { get; private set; }
+        public TMP_Text uiText { get; private set; }
 
         private bool mStarted = false;
         private object[] mParams = null;

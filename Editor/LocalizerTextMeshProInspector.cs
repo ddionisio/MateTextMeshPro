@@ -18,7 +18,7 @@ namespace M8.TextMeshPro {
             if(GUILayout.Button("Preview")) {
                 var dat = target as LocalizerTextMeshPro;
 
-                var textUI = dat.GetComponent<TextMeshProUGUI>();
+                var textUI = dat.GetComponent<TMP_Text>();
                 if(textUI) {
                     dat.Apply();
                     EditorUtility.SetDirty(textUI);
