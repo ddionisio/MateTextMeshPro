@@ -5,7 +5,7 @@ using TMPro;
 
 namespace M8.TextMeshPro {
     [AddComponentMenu("M8/TextMeshPro/Version")]
-    public class TextVersionTextMeshPro : MonoBehaviour {
+    public class TextMeshProVersion : MonoBehaviour {
         public TMP_Text target;
 
         public void Apply() {
