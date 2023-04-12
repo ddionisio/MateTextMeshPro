@@ -38,6 +38,16 @@ namespace M8.TextMeshPro {
 
         private bool mIsStarted;
 
+        public void Clear() {
+            if(mRout != null) {
+                StopCoroutine(mRout);
+                mRout = null;
+            }
+
+            label.text = "";
+            mString = "";
+        }
+
         public void Play() {
             if(mRout != null)
                 StopCoroutine(mRout);
