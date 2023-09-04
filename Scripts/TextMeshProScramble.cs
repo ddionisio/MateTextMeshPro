@@ -24,7 +24,8 @@ namespace M8.TextMeshPro {
         public string fixedString { get; private set; }
         public bool isBusy { get { return mRout != null; } }
 
-        private char[] mScrambleChars;
+        private static char[] mScrambleChars;
+
         private int mScrambleCurInd;
         private int mScrambleCurCount;
         private float mScrambleLastTime;
@@ -110,14 +111,16 @@ namespace M8.TextMeshPro {
         }
 
         void Awake() {
-            int asciiStart = 0x21;
-            int asciiEnd = 0x7e;
+            if(mScrambleChars == null) {
+                int asciiStart = 0x21;
+                int asciiEnd = 0x7e;
 
-            mScrambleChars = new char[asciiEnd - asciiStart];
-            for(int i = 0; i < mScrambleChars.Length; i++)
-                mScrambleChars[i] = (char)(asciiStart + i);
+                mScrambleChars = new char[asciiEnd - asciiStart];
+                for(int i = 0; i < mScrambleChars.Length; i++)
+                    mScrambleChars[i] = (char)(asciiStart + i);
 
-            ArrayUtil.Shuffle(mScrambleChars);
+                ArrayUtil.Shuffle(mScrambleChars);
+            }
 
             mScrambleCurCount = _scrambleDefaultCount;
 
@@ -143,10 +146,8 @@ namespace M8.TextMeshPro {
             mStringBuff.Append(mFixedStringBuff.ToString());
 
             for(int i = mStringBuff.Length; i < mScrambleCurCount; i++) {
-                if(mScrambleCurInd >= mScrambleChars.Length) {
-                    ArrayUtil.Shuffle(mScrambleChars);
+                if(mScrambleCurInd >= mScrambleChars.Length)
                     mScrambleCurInd = 0;
-                }
 
                 mStringBuff.Append(mScrambleChars[mScrambleCurInd]);
                 mScrambleCurInd++;
