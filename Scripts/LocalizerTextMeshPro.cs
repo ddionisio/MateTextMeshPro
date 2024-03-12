@@ -5,7 +5,7 @@ using TMPro;
 
 namespace M8.TextMeshPro {
     [AddComponentMenu("M8/TextMeshPro/Localizer")]
-    [RequireComponent(typeof(TextMeshProUGUI))]
+    [RequireComponent(typeof(TMP_Text))]
     public class LocalizerTextMeshPro : MonoBehaviour {
         /// <summary>
         /// Localization key.
@@ -50,7 +50,7 @@ namespace M8.TextMeshPro {
         /// </summary>
         public void Apply() {
             if(uiText == null)
-                uiText = GetComponent<TextMeshProUGUI>();
+                uiText = GetComponent<TMP_Text>();
 
             if(isKeyExclusive) {
                 //ensure key exists
